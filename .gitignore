@@ -42,3 +42,6 @@ next-env.d.ts
 
 # ShipStudio metadata
 .shipstudio/
+
+# Full-size source images — kept locally, not deployed
+_originals/
