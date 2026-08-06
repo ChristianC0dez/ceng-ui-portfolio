@@ -84,6 +84,7 @@ summary::-webkit-details-marker { display: none; }
   --ambient:   rgba(255, 255, 255, .05);
   --sheen:     rgba(255, 255, 255, .06);
   --grain-blend: overlay;
+  --grain-img:   .5;          /* strength of the grain over images */
 
   color-scheme: dark;
 }
@@ -126,6 +127,9 @@ summary::-webkit-details-marker { display: none; }
   --ambient:   rgba(120, 130, 150, .07);
   --sheen:     rgba(0, 0, 0, .022);
   --grain-blend: multiply;
+  /* Much weaker. `multiply` on a white surface darkens rather than textures,
+     so the dark-mode strength would read as a dirty image. */
+  --grain-img:   .2;
 
   color-scheme: light;
 }
@@ -286,18 +290,25 @@ body::after {
 .btn--sm { --btn-y: 9px; padding-inline: 16px; font-size: 13.5px; }
 
 /* --- "Open for commissions" pill ---------------------------------------- */
+/*
+  Set in the display face rather than the mono one. The mono treatment reads
+  as a system label — a spec value, like the "01 SELECTED WORK" eyebrows. This
+  is a person telling you they are free to take work, so it is set as speech:
+  sentence case, normal tracking, no shouting.
+*/
 .status {
   display: inline-flex;
   align-items: center;
-  gap: 9px;
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
+  gap: 10px;
+  font-family: var(--font);
+  font-size: 13.5px;
+  font-weight: 500;
+  letter-spacing: -0.012em;
+  text-transform: none;
   color: var(--fg-muted);
   border: 1px solid var(--line);
   background: var(--bg-elev);
-  padding: 7px 15px 7px 13px;
+  padding: 8px 17px 8px 14px;
   border-radius: 999px;
   margin-bottom: 34px;
 }
@@ -619,7 +630,15 @@ body.is-locked { overflow: hidden; }
 .hero {
   position: relative;
   padding-top: clamp(140px, 20vh, 200px);
-  padding-bottom: clamp(72px, 10vw, 130px);
+
+  /*
+    Deliberately small. The Work section directly below already contributes
+    its own generous `--section-y` of top padding, and the two stack — the
+    hero's old 130px on top of Work's 168px left nearly 300px of dead space
+    between the spec row and "Selected work". Only the shortfall is added
+    here; the section below supplies the rest of the gap.
+  */
+  padding-bottom: clamp(16px, 2.5vw, 36px);
   overflow: hidden;
 }
 
@@ -807,6 +826,20 @@ body.is-locked { overflow: hidden; }
   font-size: 10.5px; letter-spacing: .13em; text-transform: uppercase;
   color: var(--fg-faint);
 }
+
+/*
+  Space between a heading and the copy under it.
+
+  Most sections wrap their heading in `.section__head`, which supplies this
+  gap. The About block does not — its heading sits as a direct sibling of the
+  paragraph, so it was landing straight on top of it and reading as one dense
+  clump. Set here rather than on `.about__body` so any future heading followed
+  by body copy gets the same treatment.
+
+  It scales: a 62px heading needs noticeably more air beneath it than the 27px
+  one the same rule produces on a phone.
+*/
+.section__title + .prose { margin-top: clamp(22px, 2.6vw, 38px); }
 
 .prose p {
   color: var(--fg-muted);
@@ -998,7 +1031,9 @@ body.is-locked { overflow: hidden; }
   color: var(--fg-faint);
   transition: color .45s var(--ease), transform .5s var(--ease);
 }
-.tool__icon svg { width: 30px; height: 30px; }
+/* Height-locked, width free. The Figma mark is drawn 2:3 rather than square,
+   and forcing every icon into a 30x30 box squashed it out of shape. */
+.tool__icon svg { height: 30px; width: auto; }
 .tool:hover .tool__icon {
   color: var(--fg);
   transform: translateY(-3px) scale(1.06);
@@ -1222,8 +1257,11 @@ body.is-locked { overflow: hidden; }
   .about { grid-template-columns: 1fr; gap: 44px; }
   .about__visual { max-width: 320px; }
 
-  /* Seven across is too tight below this width */
+  /* Seven across is too tight below this width. Seven items into four columns
+     leaves one cell empty on the last row, which shows through as a grey
+     block — so the last one is widened to close the row off. */
   .tools { grid-template-columns: repeat(4, 1fr); }
+  .tool:last-child { grid-column: span 2; }
 
   .step { grid-template-columns: 52px 1fr; gap: 20px; }
   .step__meta { grid-column: 2; text-align: left; padding-top: 12px; }
@@ -1248,7 +1286,9 @@ body.is-locked { overflow: hidden; }
   .card__meta { flex-wrap: wrap; gap: 8px 10px; }
   .card__year { margin-left: 0; width: 100%; }
 
+  /* Two columns, with the odd one out spanning the full width */
   .tools { grid-template-columns: repeat(2, 1fr); }
+  .tool:last-child { grid-column: 1 / -1; }
   .tool__use { display: none; }     /* the name alone carries it at this size */
 
   .caps { grid-template-columns: 1fr; gap: 0; }
@@ -1265,10 +1305,70 @@ body.is-locked { overflow: hidden; }
   .footer__nav { margin-inline: 0; }
 }
 
+/* --------------------------------------------------------------------------
+   PHONES — typography
+
+   The headings are sized in `vw` so they scale, but each one also has a
+   minimum, and on a phone every one of them was hitting that minimum and
+   overflowing. At 390px wide (an iPhone 14/15) there are only about 350px of
+   usable width once the gutters are taken off, and a 42px headline needs
+   roughly 400px to fit "Interfaces that make" on one line. The result was a
+   forced wrap that left single words stranded on their own line.
+
+   These sizes are set so the intended line breaks actually hold on a phone.
+   The line-heights are also opened up: tracking that reads as confident at
+   100px reads as cramped at 34px.
+   -------------------------------------------------------------------------- */
+@media (max-width: 600px) {
+  .hero__title {
+    font-size: clamp(29px, 8.6vw, 40px);
+    line-height: 1.07;
+    letter-spacing: -0.038em;
+    margin-bottom: 28px;
+  }
+
+  .section__title {
+    font-size: clamp(27px, 7.6vw, 36px);
+    line-height: 1.1;
+    letter-spacing: -0.032em;
+  }
+
+  .contact__title {
+    font-size: clamp(29px, 8.2vw, 40px);
+    line-height: 1.08;
+    letter-spacing: -0.036em;
+  }
+
+  .project__title {
+    font-size: clamp(36px, 11vw, 56px);
+    line-height: 1.04;
+    letter-spacing: -0.04em;
+  }
+
+  /* Body copy needs a touch more room between lines on a narrow measure */
+  .hero__sub,
+  .section__note,
+  .prose p,
+  .project__summary { line-height: 1.7; }
+
+  .step__body h3 { font-size: 20px; margin-bottom: 8px; }
+  .step__body p { font-size: 15px; line-height: 1.68; }
+
+  /* Consistent breathing room above and below every block */
+  .section { padding-block: clamp(64px, 15vw, 96px); }
+  .section__head { margin-bottom: 36px; }
+  .eyebrow { margin-bottom: 20px; }
+}
+
 @media (max-width: 420px) {
   .spec { grid-template-columns: 1fr; }
   .spec__item { padding: 16px 0 0 !important; border-left: none !important; }
   .spec__item + .spec__item { border-top: 1px solid var(--line); }
+
+  /* The pill and the buttons both start wrapping below this width */
+  .status { font-size: 12.5px; padding: 7px 14px 7px 12px; }
+  .hero__actions { gap: 10px; }
+  .btn { --btn-y: 12px; font-size: 14px; }
 }
 
 
@@ -1380,13 +1480,18 @@ body.is-locked { overflow: hidden; }
   opacity: 0;
   animation: loaderFade .7s var(--ease-soft) .45s forwards;
 }
+/*
+  No CSS transition on the width. The script already eases this value and
+  writes it every frame — adding a 0.25s transition on top means each frame
+  starts a fresh animation that the next frame interrupts, so the bar lurches
+  and lags behind the number beside it. One easing, done in one place.
+*/
 .loader__meter span {
   display: block;
   height: 100%;
   width: 0%;
   background: var(--fg);
   opacity: .75;
-  transition: width .25s var(--ease-soft);
 }
 
 /* Set in the display face, not the mono one — same typeface, weight and tight
@@ -1485,7 +1590,7 @@ body::before {
   inset: 0;
   z-index: 2;
   pointer-events: none;
-  opacity: .5;
+  opacity: var(--grain-img);
   background-image: var(--grain-url);
   mix-blend-mode: var(--grain-blend);
 }
@@ -1615,7 +1720,7 @@ body::before {
   content: '';
   position: absolute; inset: 0;
   pointer-events: none;
-  opacity: .5;
+  opacity: var(--grain-img);
   background-image: var(--grain-url);
   mix-blend-mode: var(--grain-blend);
 }

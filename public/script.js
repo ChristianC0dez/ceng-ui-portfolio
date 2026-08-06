@@ -754,12 +754,21 @@
 
     /* --- Painting ------------------------------------------------------- */
 
+    /*
+      The bar and the number are painted at different resolutions on purpose.
+
+      The bar gets one decimal place every frame, so it slides continuously.
+      The number only gets rewritten when the whole percent actually changes —
+      it is text, and rewriting it 60 times a second to show the same value is
+      wasted work. Rounding both to whole numbers made the bar visibly step.
+    */
     function paint(value) {
+      if (bar) bar.style.width = value.toFixed(1) + '%';
+
       var whole = Math.round(value);
-      if (whole === lastPainted) return;   // skip redundant DOM writes
+      if (whole === lastPainted) return;
       lastPainted = whole;
       if (pctEl) pctEl.textContent = whole + '%';
-      if (bar) bar.style.width = whole + '%';
     }
 
     function leave() {
