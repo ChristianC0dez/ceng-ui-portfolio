@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CENG — UI/UX Designer for Roblox Experiences</title>
+  <meta name="description" content="CENG designs HUDs, menus, shops and inventory systems for Roblox experiences. Interface design from first wireframe to handoff-ready assets.">
+  <meta name="theme-color" content="#0a0a0a">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <!--
+    This tiny script runs before the page draws so the site never "flashes"
+    white before switching to dark. It just reads your saved theme choice.
+  -->
+  <script>
+    (function () {
+      // Marks that JavaScript is alive. If this never runs, the stylesheet
+      // leaves every animated element permanently visible instead of hiding
+      // it and waiting for an animation that will never arrive.
+      document.documentElement.classList.add('js');
+      try {
+        var saved = localStorage.getItem('ceng-theme');
+        var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+        document.documentElement.setAttribute('data-theme', saved || (prefersLight ? 'light' : 'dark'));
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- Thin line at the very top that fills up as you scroll -->
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+  <a href="#work" class="skip-link">Skip to work</a>
+
+  <!-- ============ NAVIGATION ============ -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#top" class="wordmark" aria-label="CENG, back to top">
+        <span class="wordmark__dot" aria-hidden="true"></span>
+        CENG
+      </a>
+
+      <nav class="nav__links" aria-label="Main">
+        <a href="#work"><span>Work</span></a>
+        <a href="#about"><span>About</span></a>
+        <a href="#process"><span>Process</span></a>
+        <a href="#faq"><span>FAQ</span></a>
+      </nav>
+
+      <div class="nav__actions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light mode">
+          <span class="theme-toggle__track" aria-hidden="true">
+            <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+            <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="4.2"/>
+              <path d="M12 2.6v2M12 19.4v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.6 12h2M19.4 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/>
+            </svg>
+          </span>
+        </button>
+
+        <a href="#contact" class="btn btn--solid btn--sm nav__cta magnetic">Start a project</a>
+
+        <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Full-screen menu on phones -->
+  <div class="mobile-menu" id="mobileMenu" hidden>
+    <nav aria-label="Mobile">
+      <a href="#work"><em>01</em> Work</a>
+      <a href="#about"><em>02</em> About</a>
+      <a href="#process"><em>03</em> Process</a>
+      <a href="#faq"><em>04</em> FAQ</a>
+      <a href="#contact"><em>05</em> Contact</a>
+    </nav>
+  </div>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero__grid" aria-hidden="true" data-parallax="-0.05"></div>
+      <div class="shell">
+
+        <p class="status" data-reveal>
+          <span class="status__dot" aria-hidden="true"></span>
+          Open for commissions
+        </p>
+
+        <h1 class="hero__title">
+          <span class="line" style="--d:60ms"><span>Interfaces that make</span></span>
+          <span class="line" style="--d:140ms"><span>Roblox games feel</span></span>
+          <span class="line" style="--d:220ms"><span class="ital">finished.</span></span>
+        </h1>
+
+        <p class="hero__sub" data-reveal style="--d:320ms">
+          I'm CENG. I design HUDs, menus, shops and inventory systems for Roblox
+          experiences — starting at the first wireframe and ending with assets your
+          developers can drop straight into Studio.
+        </p>
+
+        <div class="hero__actions" data-reveal style="--d:400ms">
+          <a href="#work" class="btn btn--solid magnetic">
+            View work
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </a>
+          <a href="#contact" class="btn btn--ghost magnetic">Start a project</a>
+        </div>
+
+        <!-- Small facts strip at the bottom of the hero -->
+        <dl class="spec" data-stagger="70">
+          <div class="spec__item" data-reveal>
+            <dt>Role</dt>
+            <dd>UI/UX Designer</dd>
+          </div>
+          <div class="spec__item" data-reveal>
+            <dt>Focus</dt>
+            <dd>Roblox experiences</dd>
+          </div>
+          <div class="spec__item" data-reveal>
+            <dt>Tools</dt>
+            <dd>Figma, Illustrator, After Effects</dd>
+          </div>
+          <div class="spec__item" data-reveal>
+            <dt>Response</dt>
+            <dd>Usually within a day</dd>
+          </div>
+        </dl>
+
+      </div>
+    </section>
+
+    <!-- ============ WORK ============ -->
+    <section class="section" id="work">
+      <div class="shell">
+
+        <div class="section__head" data-stagger="90">
+          <p class="eyebrow" data-reveal><em>01</em> Selected work</p>
+          <h2 class="section__title" data-split>Six interfaces,<br>built to ship.</h2>
+          <p class="section__note" data-reveal>
+            Every screen here was designed at real Roblox resolutions and exported
+            as sliced, named layers. Filter by the part of the game it belongs to.
+          </p>
+        </div>
+
+        <div class="filters" data-reveal data-stagger="55" role="tablist" aria-label="Filter work by type">
+          <button class="chip is-active" data-filter="all" role="tab" aria-selected="true">All <em>6</em></button>
+          <button class="chip" data-filter="hud" role="tab" aria-selected="false">HUD <em>2</em></button>
+          <button class="chip" data-filter="menus" role="tab" aria-selected="false">Menus <em>2</em></button>
+          <button class="chip" data-filter="shop" role="tab" aria-selected="false">Shop <em>1</em></button>
+          <button class="chip" data-filter="systems" role="tab" aria-selected="false">Systems <em>1</em></button>
+        </div>
+
+        <div class="work" id="workGrid" data-stagger="90">
+
+          <!-- Featured, full width -->
+          <article class="card card--wide" data-cat="systems" data-reveal>
+            <a class="card__link" href="#contact" aria-label="Nightfall — full UI system">
+              <div class="card__media card__media--wide">
+                <span class="card__shift" data-parallax="0.04"><img src="images/work-01.svg" alt="Wireframe preview of the Nightfall full UI system" loading="lazy" width="1600" height="900"></span>
+                <span class="card__view">View <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+              </div>
+              <div class="card__meta">
+                <span class="card__index">01</span>
+                <h3 class="card__title">Nightfall</h3>
+                <span class="card__tag">Full UI system</span>
+                <span class="card__year">2026</span>
+              </div>
+            </a>
+          </article>
+
+          <article class="card" data-cat="hud" data-reveal>
+            <a class="card__link" href="#contact" aria-label="Ember — combat HUD">
+              <div class="card__media">
+                <span class="card__shift" data-parallax="0.05"><img src="images/work-02.svg" alt="Wireframe preview of the Ember combat HUD" loading="lazy" width="1200" height="900"></span>
+                <span class="card__view">View <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+              </div>
+              <div class="card__meta">
+                <span class="card__index">02</span>
+                <h3 class="card__title">Ember</h3>
+                <span class="card__tag">Combat HUD</span>
+                <span class="card__year">2026</span>
+              </div>
+            </a>
+          </article>
+
+          <article class="card" data-cat="menus" data-reveal>
+            <a class="card__link" href="#contact" aria-label="Tidebreak — main menu">
+              <div class="card__media">
+                <span class="card__shift" data-parallax="-0.05"><img src="images/work-03.svg" alt="Wireframe preview of the Tidebreak main menu" loading="lazy" width="1200" height="900"></span>
+                <span class="card__view">View <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+              </div>
+              <div class="card__meta">
+                <span class="card__index">03</span>
+                <h3 class="card__title">Tidebreak</h3>
+                <span class="card__tag">Main menu</span>
+                <span class="card__year">2025</span>
+              </div>
+            </a>
+          </article>
+
+          <article class="card" data-cat="shop" data-reveal>
+            <a class="card__link" href="#contact" aria-label="Ironworks — shop and currency">
+              <div class="card__media">
+                <span class="card__shift" data-parallax="0.05"><img src="images/work-04.svg" alt="Wireframe preview of the Ironworks shop and currency screens" loading="lazy" width="1200" height="900"></span>
+                <span class="card__view">View <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+              </div>
+              <div class="card__meta">
+                <span class="card__index">04</span>
+                <h3 class="card__title">Ironworks</h3>
+                <span class="card__tag">Shop &amp; currency</span>
+                <span class="card__year">2025</span>
+              </div>
+            </a>
+          </article>
+
+          <article class="card" data-cat="hud" data-reveal>
+            <a class="card__link" href="#contact" aria-label="Aviary — inventory HUD">
+              <div class="card__media">
+                <span class="card__shift" data-parallax="-0.05"><img src="images/work-05.svg" alt="Wireframe preview of the Aviary inventory HUD" loading="lazy" width="1200" height="900"></span>
+                <span class="card__view">View <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+              </div>
+              <div class="card__meta">
+                <span class="card__index">05</span>
+                <h3 class="card__title">Aviary</h3>
+                <span class="card__tag">Inventory HUD</span>
+                <span class="card__year">2025</span>
+              </div>
+            </a>
+          </article>
+
+          <article class="card" data-cat="menus" data-reveal>
+            <a class="card__link" href="#contact" aria-label="Relay — settings and onboarding">
+              <div class="card__media">
+                <span class="card__shift" data-parallax="0.05"><img src="images/work-06.svg" alt="Wireframe preview of the Relay settings and onboarding screens" loading="lazy" width="1200" height="900"></span>
+                <span class="card__view">View <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+              </div>
+              <div class="card__meta">
+                <span class="card__index">06</span>
+                <h3 class="card__title">Relay</h3>
+                <span class="card__tag">Settings &amp; onboarding</span>
+                <span class="card__year">2024</span>
+              </div>
+            </a>
+          </article>
+
+        </div>
+
+        <p class="work__empty" id="workEmpty" hidden>Nothing in this category yet.</p>
+
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section section--rule" id="about">
+      <div class="shell">
+        <div class="about">
+
+          <div class="about__visual" data-reveal>
+            <div class="portrait">
+              <span class="portrait__shift" data-parallax="0.055"><img src="images/portrait.svg" alt="Portrait placeholder" loading="lazy" width="900" height="1125"></span>
+            </div>
+            <p class="portrait__cap">CENG — UI/UX Designer</p>
+          </div>
+
+          <div class="about__body">
+            <p class="eyebrow" data-reveal><em>02</em> About</p>
+            <h2 class="section__title" data-split>
+              I make the part<br>players actually touch.
+            </h2>
+
+            <div class="prose" data-reveal style="--d:120ms">
+              <p>
+                Most Roblox games get the world right and the interface last. I work the
+                other way around — starting from what a player needs to see in the first
+                three seconds, then building outward until every screen agrees with the
+                one before it.
+              </p>
+              <p>
+                That means readable at 1080p and on a phone, consistent spacing across
+                every panel, and states for hover, press, disabled and empty. Not just
+                the screenshot version.
+              </p>
+              <p>
+                I hand off in Figma with named layers and sliced exports, so nobody on
+                your team has to guess what a component is called.
+              </p>
+            </div>
+
+            <ul class="caps" data-reveal style="--d:180ms" data-stagger="45">
+              <li data-reveal>HUD &amp; combat overlays</li>
+              <li data-reveal>Main menus &amp; lobbies</li>
+              <li data-reveal>Shop &amp; currency screens</li>
+              <li data-reveal>Inventory &amp; equipment</li>
+              <li data-reveal>Icon &amp; badge sets</li>
+              <li data-reveal>Design systems</li>
+              <li data-reveal>Motion &amp; transitions</li>
+              <li data-reveal>Studio-ready handoff</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROCESS ============ -->
+    <section class="section section--rule" id="process">
+      <div class="shell">
+
+        <div class="section__head section__head--split" data-stagger="90">
+          <div>
+            <p class="eyebrow" data-reveal><em>03</em> Process</p>
+            <h2 class="section__title" data-split>Four steps,<br>no surprises.</h2>
+          </div>
+          <p class="section__note" data-reveal>
+            The same order every time. You always know what's coming next and what
+            you're approving before it gets built.
+          </p>
+        </div>
+
+        <ol class="steps" data-stagger="110">
+          <li class="step" data-reveal>
+            <span class="step__num">01</span>
+            <div class="step__body">
+              <h3>Brief</h3>
+              <p>You tell me the game, the screens you need and your deadline. I come back with scope and a price before anything starts.</p>
+            </div>
+            <span class="step__meta">Day 1</span>
+          </li>
+          <li class="step" data-reveal>
+            <span class="step__num">02</span>
+            <div class="step__body">
+              <h3>Direction</h3>
+              <p>Two visual directions on one real screen from your game — not a mood board. You pick one, we lock the type, spacing and colour rules.</p>
+            </div>
+            <span class="step__meta">Days 2–3</span>
+          </li>
+          <li class="step" data-reveal>
+            <span class="step__num">03</span>
+            <div class="step__body">
+              <h3>Design</h3>
+              <p>Every screen built out in full, including the states people forget — empty, loading, locked, error. You review in Figma as it happens.</p>
+            </div>
+            <span class="step__meta">The bulk of it</span>
+          </li>
+          <li class="step" data-reveal>
+            <span class="step__num">04</span>
+            <div class="step__body">
+              <h3>Handoff</h3>
+              <p>Named layers, sliced exports at the right scales, and a short doc covering spacing and component names. Questions answered after delivery.</p>
+            </div>
+            <span class="step__meta">Final week</span>
+          </li>
+        </ol>
+
+      </div>
+    </section>
+
+    <!-- ============ TOOLKIT MARQUEE ============ -->
+    <section class="marquee-wrap" aria-label="Tools I work in">
+      <div class="marquee">
+        <div class="marquee__track">
+          <span>Figma</span><i aria-hidden="true"></i>
+          <span>Illustrator</span><i aria-hidden="true"></i>
+          <span>Photoshop</span><i aria-hidden="true"></i>
+          <span>After Effects</span><i aria-hidden="true"></i>
+          <span>Roblox Studio</span><i aria-hidden="true"></i>
+          <span>Blender</span><i aria-hidden="true"></i>
+          <span>Rive</span><i aria-hidden="true"></i>
+          <!-- duplicated so the loop is invisible -->
+          <span aria-hidden="true">Figma</span><i aria-hidden="true"></i>
+          <span aria-hidden="true">Illustrator</span><i aria-hidden="true"></i>
+          <span aria-hidden="true">Photoshop</span><i aria-hidden="true"></i>
+          <span aria-hidden="true">After Effects</span><i aria-hidden="true"></i>
+          <span aria-hidden="true">Roblox Studio</span><i aria-hidden="true"></i>
+          <span aria-hidden="true">Blender</span><i aria-hidden="true"></i>
+          <span aria-hidden="true">Rive</span><i aria-hidden="true"></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="section section--rule" id="faq">
+      <div class="shell">
+
+        <div class="section__head section__head--split" data-stagger="90">
+          <div>
+            <p class="eyebrow" data-reveal><em>04</em> Questions</p>
+            <h2 class="section__title" data-split>Before you<br>message me.</h2>
+          </div>
+          <p class="section__note" data-reveal>
+            If your question isn't here, ask it on Discord — I'd rather answer than
+            have you guess.
+          </p>
+        </div>
+
+        <div class="faq" data-stagger="70">
+          <details class="qa" data-reveal>
+            <summary><span class="qa__n">01</span> What do you need from me to start?<span class="qa__ic" aria-hidden="true"></span></summary>
+            <div class="qa__body"><p>The game name and link, a list of the screens you want, any existing art or colours you're locked into, and your deadline. Screenshots of the current UI help more than a description.</p></div>
+          </details>
+          <details class="qa" data-reveal>
+            <summary><span class="qa__n">02</span> How long does a project take?<span class="qa__ic" aria-hidden="true"></span></summary>
+            <div class="qa__body"><p>A single screen is usually a few days. A full system across a dozen screens runs a few weeks. I give you a real date in the brief stage rather than a guess up front.</p></div>
+          </details>
+          <details class="qa" data-reveal>
+            <summary><span class="qa__n">03</span> Do I get files I can use in Studio?<span class="qa__ic" aria-hidden="true"></span></summary>
+            <div class="qa__body"><p>Yes. Sliced PNGs at the scales you need, named to match the Figma layers, plus 9-slice assets where a panel has to stretch. Source file included.</p></div>
+          </details>
+          <details class="qa" data-reveal>
+            <summary><span class="qa__n">04</span> How many revisions are included?<span class="qa__ic" aria-hidden="true"></span></summary>
+            <div class="qa__body"><p>Revisions run through the whole project rather than being counted. Because direction gets locked in step two, changes later tend to be small.</p></div>
+          </details>
+          <details class="qa" data-reveal>
+            <summary><span class="qa__n">05</span> Can you animate the UI?<span class="qa__ic" aria-hidden="true"></span></summary>
+            <div class="qa__body"><p>I can. Transitions, hover states and entrance animations get delivered as reference videos plus timing and easing values your scripter can match.</p></div>
+          </details>
+          <details class="qa" data-reveal>
+            <summary><span class="qa__n">06</span> What does it cost?<span class="qa__ic" aria-hidden="true"></span></summary>
+            <div class="qa__body"><p>It depends on how many screens and how complex the states are. Send me the brief and you'll have a fixed number before any work starts — no hourly billing.</p></div>
+          </details>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section contact" id="contact">
+      <div class="shell">
+
+        <p class="eyebrow" data-reveal><em>05</em> Contact</p>
+        <h2 class="contact__title" data-split>
+          Got a game that<br>deserves better UI?
+        </h2>
+        <p class="contact__sub" data-reveal style="--d:120ms">
+          Send the game and the screens you need. I'll tell you honestly whether
+          I'm the right fit and what it'll take.
+        </p>
+
+        <div class="links" data-stagger="110">
+          <a class="link-row" href="#" data-reveal data-placeholder="discord">
+            <span class="link-row__k">Discord</span>
+            <span class="link-row__v">add-your-username</span>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg>
+          </a>
+          <a class="link-row" href="#" data-reveal data-placeholder="x">
+            <span class="link-row__k">X / Twitter</span>
+            <span class="link-row__v">@add-your-handle</span>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="shell footer__inner">
+      <a href="#top" class="footer__mark">CENG</a>
+      <nav class="footer__nav" aria-label="Footer">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#process">Process</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <p class="footer__note">UI/UX for Roblox experiences — <span id="year">2026</span></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

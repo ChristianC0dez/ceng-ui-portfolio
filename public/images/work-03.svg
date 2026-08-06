@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Placeholder wireframe: main menu">
+  <g fill="none" stroke="#8a8a8a" stroke-width="2">
+    <!-- logo block -->
+    <rect x="450" y="140" width="300" height="96" rx="10" opacity=".45"/>
+    <path d="M498 212 L546 164 L594 212 M606 212 L654 164 L702 212" opacity=".35"/>
+    <!-- button stack -->
+    <g opacity=".5">
+      <rect x="450" y="304" width="300" height="58" rx="8"/>
+    </g>
+    <rect x="450" y="304" width="300" height="58" rx="8" opacity=".18" fill="#8a8a8a" stroke="none"/>
+    <g opacity=".38">
+      <rect x="450" y="378" width="300" height="58" rx="8"/>
+      <rect x="450" y="452" width="300" height="58" rx="8"/>
+      <rect x="450" y="526" width="300" height="58" rx="8"/>
+    </g>
+    <g opacity=".26" fill="#8a8a8a" stroke="none">
+      <rect x="546" y="326" width="108" height="14" rx="4"/>
+      <rect x="558" y="400" width="84" height="14" rx="4"/>
+      <rect x="552" y="474" width="96" height="14" rx="4"/>
+      <rect x="564" y="548" width="72" height="14" rx="4"/>
+    </g>
+    <!-- player card, bottom left -->
+    <rect x="80" y="744" width="300" height="76" rx="10" opacity=".4"/>
+    <circle cx="126" cy="782" r="24" opacity=".45"/>
+    <g opacity=".24" fill="#8a8a8a" stroke="none">
+      <rect x="166" y="766" width="120" height="12" rx="4"/>
+      <rect x="166" y="788" width="76" height="10" rx="4"/>
+    </g>
+    <!-- social icons, bottom right -->
+    <g opacity=".42">
+      <rect x="1000" y="756" width="52" height="52" rx="10"/>
+      <rect x="1068" y="756" width="52" height="52" rx="10"/>
+    </g>
+    <!-- version tag -->
+    <rect x="80" y="80" width="96" height="24" rx="12" opacity=".3"/>
+  </g>
+  <text x="600" y="884" text-anchor="middle" font-family="ui-monospace, monospace" font-size="17" letter-spacing="3" fill="#8a8a8a" opacity=".5">REPLACE — images/work-03.svg</text>
+</svg>

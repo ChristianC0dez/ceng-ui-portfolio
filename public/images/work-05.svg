@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Placeholder wireframe: inventory HUD">
+  <g fill="none" stroke="#8a8a8a" stroke-width="2">
+    <!-- panel frame -->
+    <rect x="80" y="90" width="1040" height="700" rx="12" opacity=".4"/>
+    <path d="M80 168 H1120" opacity=".28"/>
+    <rect x="112" y="120" width="150" height="18" rx="5" opacity=".3" fill="#8a8a8a" stroke="none"/>
+    <circle cx="1088" cy="129" r="14" opacity=".45"/>
+    <!-- inventory grid 6 x 4 -->
+    <g opacity=".36">
+      <rect x="112" y="204" width="86" height="86" rx="8"/><rect x="210" y="204" width="86" height="86" rx="8"/>
+      <rect x="308" y="204" width="86" height="86" rx="8"/><rect x="406" y="204" width="86" height="86" rx="8"/>
+      <rect x="504" y="204" width="86" height="86" rx="8"/><rect x="602" y="204" width="86" height="86" rx="8"/>
+      <rect x="112" y="302" width="86" height="86" rx="8"/><rect x="210" y="302" width="86" height="86" rx="8"/>
+      <rect x="308" y="302" width="86" height="86" rx="8"/><rect x="406" y="302" width="86" height="86" rx="8"/>
+      <rect x="504" y="302" width="86" height="86" rx="8"/><rect x="602" y="302" width="86" height="86" rx="8"/>
+      <rect x="112" y="400" width="86" height="86" rx="8"/><rect x="210" y="400" width="86" height="86" rx="8"/>
+      <rect x="308" y="400" width="86" height="86" rx="8"/><rect x="406" y="400" width="86" height="86" rx="8"/>
+      <rect x="504" y="400" width="86" height="86" rx="8"/><rect x="602" y="400" width="86" height="86" rx="8"/>
+      <rect x="112" y="498" width="86" height="86" rx="8"/><rect x="210" y="498" width="86" height="86" rx="8"/>
+      <rect x="308" y="498" width="86" height="86" rx="8"/><rect x="406" y="498" width="86" height="86" rx="8"/>
+      <rect x="504" y="498" width="86" height="86" rx="8"/><rect x="602" y="498" width="86" height="86" rx="8"/>
+    </g>
+    <!-- filled slots -->
+    <g opacity=".22" fill="#8a8a8a" stroke="none">
+      <rect x="130" y="222" width="50" height="50" rx="6"/>
+      <rect x="228" y="222" width="50" height="50" rx="6"/>
+      <rect x="424" y="222" width="50" height="50" rx="6"/>
+      <rect x="130" y="320" width="50" height="50" rx="6"/>
+      <rect x="326" y="320" width="50" height="50" rx="6"/>
+      <rect x="522" y="418" width="50" height="50" rx="6"/>
+    </g>
+    <!-- selected slot -->
+    <rect x="308" y="302" width="86" height="86" rx="8" opacity=".75"/>
+    <!-- stack counts -->
+    <g opacity=".3" fill="#8a8a8a" stroke="none">
+      <rect x="168" y="266" width="20" height="12" rx="3"/>
+      <rect x="266" y="266" width="20" height="12" rx="3"/>
+      <rect x="462" y="266" width="20" height="12" rx="3"/>
+    </g>
+    <!-- detail pane -->
+    <rect x="726" y="204" width="362" height="500" rx="10" opacity=".38"/>
+    <rect x="762" y="240" width="290" height="200" rx="8" opacity=".2" fill="#8a8a8a" stroke="none"/>
+    <g opacity=".24" fill="#8a8a8a" stroke="none">
+      <rect x="762" y="468" width="170" height="18" rx="5"/>
+      <rect x="762" y="504" width="250" height="11" rx="4"/>
+      <rect x="762" y="528" width="222" height="11" rx="4"/>
+      <rect x="762" y="552" width="264" height="11" rx="4"/>
+    </g>
+    <g opacity=".2" stroke="none" fill="#8a8a8a">
+      <rect x="762" y="596" width="130" height="10" rx="4"/>
+      <rect x="762" y="620" width="110" height="10" rx="4"/>
+    </g>
+    <rect x="762" y="652" width="290" height="42" rx="8" opacity=".55"/>
+    <!-- weight / capacity bar -->
+    <rect x="112" y="626" width="576" height="16" rx="8" opacity=".38"/>
+    <rect x="112" y="626" width="380" height="16" rx="8" opacity=".22" fill="#8a8a8a" stroke="none"/>
+    <!-- equipment row -->
+    <g opacity=".42">
+      <rect x="112" y="676" width="72" height="72" rx="8"/>
+      <rect x="196" y="676" width="72" height="72" rx="8"/>
+      <rect x="280" y="676" width="72" height="72" rx="8"/>
+      <rect x="364" y="676" width="72" height="72" rx="8"/>
+    </g>
+  </g>
+  <text x="600" y="884" text-anchor="middle" font-family="ui-monospace, monospace" font-size="17" letter-spacing="3" fill="#8a8a8a" opacity=".5">REPLACE — images/work-05.svg</text>
+</svg>

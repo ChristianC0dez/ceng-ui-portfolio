@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1125" width="900" height="1125" role="img" aria-label="Portrait placeholder">
+  <g fill="none" stroke="#8a8a8a" stroke-width="2">
+    <!-- soft frame -->
+    <rect x="60" y="60" width="780" height="1005" rx="10" opacity=".2"/>
+    <!-- abstract figure -->
+    <circle cx="450" cy="430" r="132" opacity=".38"/>
+    <path d="M214 900 C214 748 320 656 450 656 C580 656 686 748 686 900" opacity=".38"/>
+    <!-- crop marks -->
+    <g opacity=".3">
+      <path d="M120 120 h44 M120 120 v44"/>
+      <path d="M780 120 h-44 M780 120 v44"/>
+      <path d="M120 1005 h44 M120 1005 v-44"/>
+      <path d="M780 1005 h-44 M780 1005 v-44"/>
+    </g>
+    <!-- alignment cross -->
+    <g opacity=".18">
+      <path d="M450 262 v-70 M450 598 v70"/>
+      <path d="M318 430 h-70 M582 430 h70"/>
+    </g>
+  </g>
+  <text x="450" y="1000" text-anchor="middle" font-family="ui-monospace, monospace" font-size="19" letter-spacing="3" fill="#8a8a8a" opacity=".5">REPLACE — images/portrait.svg</text>
+</svg>

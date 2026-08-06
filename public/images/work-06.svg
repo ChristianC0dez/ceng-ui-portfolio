@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Placeholder wireframe: settings and onboarding">
+  <g fill="none" stroke="#8a8a8a" stroke-width="2">
+    <!-- modal frame -->
+    <rect x="140" y="100" width="920" height="680" rx="14" opacity=".4"/>
+    <rect x="180" y="140" width="160" height="20" rx="5" opacity=".3" fill="#8a8a8a" stroke="none"/>
+    <path d="M1000 140 l28 28 M1028 140 l-28 28" opacity=".5"/>
+    <!-- side tabs -->
+    <path d="M400 196 V740" opacity=".26"/>
+    <g opacity=".24" fill="#8a8a8a" stroke="none">
+      <rect x="180" y="212" width="120" height="13" rx="4"/>
+      <rect x="180" y="256" width="96" height="13" rx="4"/>
+      <rect x="180" y="300" width="132" height="13" rx="4"/>
+      <rect x="180" y="344" width="108" height="13" rx="4"/>
+    </g>
+    <rect x="164" y="200" width="4" height="36" rx="2" opacity=".6" fill="#8a8a8a" stroke="none"/>
+    <!-- setting rows with toggles -->
+    <g opacity=".24" fill="#8a8a8a" stroke="none">
+      <rect x="444" y="212" width="180" height="14" rx="4"/>
+      <rect x="444" y="238" width="280" height="10" rx="4"/>
+      <rect x="444" y="316" width="150" height="14" rx="4"/>
+      <rect x="444" y="342" width="248" height="10" rx="4"/>
+      <rect x="444" y="420" width="196" height="14" rx="4"/>
+      <rect x="444" y="446" width="232" height="10" rx="4"/>
+      <rect x="444" y="524" width="164" height="14" rx="4"/>
+      <rect x="444" y="550" width="264" height="10" rx="4"/>
+      <rect x="444" y="628" width="184" height="14" rx="4"/>
+      <rect x="444" y="654" width="212" height="10" rx="4"/>
+    </g>
+    <path d="M444 284 H1020 M444 388 H1020 M444 492 H1020 M444 596 H1020" opacity=".16"/>
+    <!-- toggles: on, off, on, off -->
+    <g opacity=".5">
+      <rect x="944" y="212" width="76" height="36" rx="18"/>
+      <rect x="944" y="316" width="76" height="36" rx="18"/>
+      <rect x="944" y="524" width="76" height="36" rx="18"/>
+    </g>
+    <g opacity=".45" fill="#8a8a8a" stroke="none">
+      <circle cx="1002" cy="230" r="13"/>
+      <circle cx="962" cy="334" r="13"/>
+      <circle cx="1002" cy="542" r="13"/>
+    </g>
+    <!-- slider row -->
+    <rect x="856" y="440" width="164" height="6" rx="3" opacity=".35"/>
+    <rect x="856" y="440" width="104" height="6" rx="3" opacity=".3" fill="#8a8a8a" stroke="none"/>
+    <circle cx="960" cy="443" r="13" opacity=".6"/>
+    <!-- dropdown row -->
+    <rect x="890" y="628" width="130" height="38" rx="8" opacity=".45"/>
+    <path d="M994 642 l8 8 8-8" opacity=".5"/>
+    <!-- footer buttons -->
+    <rect x="740" y="704" width="130" height="44" rx="8" opacity=".38"/>
+    <rect x="890" y="704" width="130" height="44" rx="8" opacity=".6"/>
+    <!-- onboarding dots -->
+    <g opacity=".35" fill="#8a8a8a" stroke="none">
+      <circle cx="444" cy="726" r="6"/>
+      <circle cx="468" cy="726" r="6" opacity=".5"/>
+      <circle cx="492" cy="726" r="6" opacity=".5"/>
+    </g>
+  </g>
+  <text x="600" y="884" text-anchor="middle" font-family="ui-monospace, monospace" font-size="17" letter-spacing="3" fill="#8a8a8a" opacity=".5">REPLACE — images/work-06.svg</text>
+</svg>
