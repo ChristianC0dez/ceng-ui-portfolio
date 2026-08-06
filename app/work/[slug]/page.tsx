@@ -79,10 +79,6 @@ export default async function ProjectPage({ params }: Params) {
               </div>
 
               <aside className="project__facts" data-reveal data-stagger="60">
-                <div className="fact" data-reveal>
-                  <dt>Year</dt>
-                  <dd>{project.year}</dd>
-                </div>
                 {project.facts.map((f) => (
                   <div className="fact" key={f.k} data-reveal>
                     <dt>{f.k}</dt>

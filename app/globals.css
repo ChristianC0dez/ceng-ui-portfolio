@@ -695,10 +695,13 @@ body.is-locked { overflow: hidden; }
 /* --- Work ---------------------------------------------------------------- */
 
 /* Every project gets the same frame and the same weight. No featured slot —
-   the work is presented as a body rather than as a hierarchy. */
+   the work is presented as a body rather than as a hierarchy.
+
+   Three across because there are nine projects, which fills exactly three
+   rows with no odd one left over on the end. */
 .work {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: clamp(16px, 2vw, 26px);
 }
 
@@ -730,9 +733,11 @@ body.is-locked { overflow: hidden; }
   transform: none;
 }
 
+/* 16:9 — the shape the screens were actually designed at, so nothing gets
+   cropped away to fit a frame that was never right for them. */
 .card__media {
   position: relative;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 9;
   background: var(--bg-elev);
   border: 1px solid var(--line);
   border-radius: var(--r-lg);
@@ -740,12 +745,16 @@ body.is-locked { overflow: hidden; }
   transition: border-color .5s var(--ease), background-color .5s var(--ease),
               transform .6s var(--ease), box-shadow .6s var(--ease);
 }
+/* Only a slight overscan. The image and its frame are both 16:9 now, so this
+   zoom exists purely to give the parallax drift somewhere to travel — any
+   more and it would start cutting real interface off the edges. The script
+   reads this scale to work out how far it may drift. */
 .card__media img {
   width: 100%; height: 100%;
   object-fit: cover;
-  transform: scale(1.18);
+  transform: scale(1.08);
   transition: transform 1.05s var(--ease), opacity .5s var(--ease);
-  opacity: .82;
+  opacity: .88;
 }
 
 /* Lifts, sharpens and blooms. `--glow` is defined per palette in section 2:
@@ -759,7 +768,7 @@ body.is-locked { overflow: hidden; }
   box-shadow: var(--glow);
 }
 .card__link:hover .card__media img,
-.card__link:focus-visible .card__media img { transform: scale(1.23); opacity: 1; }
+.card__link:focus-visible .card__media img { transform: scale(1.13); opacity: 1; }
 
 /* The title follows the image up, so the whole card reads as one object
    rather than a picture that moves and a caption that doesn't. */
@@ -780,28 +789,34 @@ body.is-locked { overflow: hidden; }
 .card__view svg { width: 13px; height: 13px; }
 .card__link:hover .card__view { opacity: 1; transform: none; }
 
+/*
+  Two lines rather than one. Game names like "The Amazing Digital Circus" have
+  no chance of sitting on the same line as their screen name inside a card
+  that is a third of the page wide, so the screen name drops underneath and
+  hangs off the title's left edge.
+*/
 .card__meta {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 3px 11px;
+  padding: 15px 2px 0;
   align-items: baseline;
-  gap: 12px;
-  padding: 16px 2px 0;
 }
 .card__index {
+  grid-column: 1; grid-row: 1;
   font-family: var(--mono); font-size: 11px;
   letter-spacing: .1em; color: var(--fg-faint);
 }
 .card__title {
-  font-size: 16.5px; font-weight: 500; letter-spacing: -0.02em;
+  grid-column: 2; grid-row: 1;
+  font-size: 16px; font-weight: 500; letter-spacing: -0.022em;
+  line-height: 1.25;
 }
 .card__tag {
-  font-size: 13.5px; color: var(--fg-muted);
+  grid-column: 2; grid-row: 2;
+  font-size: 13px; color: var(--fg-muted);
 }
 .card__tag::before { content: '— '; color: var(--fg-faint); }
-.card__year {
-  margin-left: auto;
-  font-family: var(--mono); font-size: 11px;
-  letter-spacing: .08em; color: var(--fg-faint);
-}
 
 /* --- About --------------------------------------------------------------- */
 .about {
@@ -1257,6 +1272,9 @@ body.is-locked { overflow: hidden; }
   .about { grid-template-columns: 1fr; gap: 44px; }
   .about__visual { max-width: 320px; }
 
+  /* Three 16:9 cards side by side get too small to read below this width */
+  .work { grid-template-columns: repeat(2, 1fr); }
+
   /* Seven across is too tight below this width. Seven items into four columns
      leaves one cell empty on the last row, which shows through as a grey
      block — so the last one is widened to close the row off. */
@@ -1283,8 +1301,6 @@ body.is-locked { overflow: hidden; }
   .work:hover .card__link,
   .work:focus-within .card__link { opacity: 1; transform: none; }
 
-  .card__meta { flex-wrap: wrap; gap: 8px 10px; }
-  .card__year { margin-left: 0; width: 100%; }
 
   /* Two columns, with the odd one out spanning the full width */
   .tools { grid-template-columns: repeat(2, 1fr); }

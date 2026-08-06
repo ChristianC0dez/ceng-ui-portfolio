@@ -70,9 +70,10 @@ export default function Home() {
 
             <div className="section__head" data-stagger="90">
               <p className="eyebrow" data-reveal><em>01</em> Selected work</p>
-              <h2 className="section__title" data-split>Six interfaces,<br />built to ship.</h2>
+              <h2 className="section__title" data-split>Shipped screens,<br />not mockups.</h2>
               <p className="section__note" data-reveal>
-                Every screen here was designed at real Roblox resolutions and exported
+                Live interfaces from Roblox experiences — summon banners, inventories,
+                deck builders and loading screens. All designed at 1080p and exported
                 as sliced, named layers.
               </p>
             </div>
@@ -99,7 +100,6 @@ export default function Home() {
                       <span className="card__index">{p.index}</span>
                       <h3 className="card__title">{p.title}</h3>
                       <span className="card__tag">{p.tag}</span>
-                      <span className="card__year">{p.year}</span>
                     </div>
                   </a>
                 </article>
