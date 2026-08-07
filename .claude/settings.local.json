@@ -7,7 +7,8 @@
       "Bash(curl -s http://localhost:53360/script.js)",
       "Bash(sed -n '/\\\\.hero__title {/,/^}/p' app/globals.css)",
       "Bash(sed -n '/\\\\.hero__sub {/,/^}/p' app/globals.css)",
-      "Bash(vercel --prod --yes)"
+      "Bash(vercel --prod --yes)",
+      "mcp__shipstudio-preview__preview_navigate"
     ]
   },
   "enabledMcpjsonServers": [

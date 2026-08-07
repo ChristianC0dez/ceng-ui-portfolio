@@ -23,15 +23,13 @@ export default function Home() {
             </p>
 
             <h1 className="hero__title">
-              <span className="line" style={v({ '--d': '60ms' })}><span>Interfaces that make</span></span>
-              <span className="line" style={v({ '--d': '140ms' })}><span>Roblox games feel</span></span>
-              <span className="line" style={v({ '--d': '220ms' })}><span className="ital">finished.</span></span>
+              <span className="line" style={v({ '--d': '60ms' })}><span>Interfaces that change</span></span>
+              <span className="line" style={v({ '--d': '140ms' })}><span>how games </span></span>
+              <span className="line" style={v({ '--d': '220ms' })}><span className="ital">feel.</span></span>
             </h1>
 
             <p className="hero__sub" data-reveal style={v({ '--d': '320ms' })}>
-              I&apos;m CENG. I design HUDs, menus, shops and inventory systems for Roblox
-              experiences — starting at the first wireframe and ending with assets your
-              developers can drop straight into Studio.
+              Hey there, I’m Christian, founder of CENG that focuses on game interface design. I specialize in all UI systems from HUDS to shop frames.
             </p>
 
             <div className="hero__actions" data-reveal style={v({ '--d': '400ms' })}>
@@ -49,15 +47,15 @@ export default function Home() {
               </div>
               <div className="spec__item" data-reveal>
                 <dt>Focus</dt>
-                <dd>Roblox experiences</dd>
+                <dd>Intuitive designs and reliable user experiences</dd>
               </div>
               <div className="spec__item" data-reveal>
                 <dt>Tools</dt>
-                <dd>Figma, Illustrator, After Effects</dd>
+                <dd>Figma & Photoshop<br /></dd>
               </div>
               <div className="spec__item" data-reveal>
                 <dt>Response</dt>
-                <dd>Usually within a day</dd>
+                <dd>Within 24 hours<br /></dd>
               </div>
             </dl>
 
@@ -70,7 +68,7 @@ export default function Home() {
 
             <div className="section__head" data-stagger="90">
               <p className="eyebrow" data-reveal><em>01</em> Selected work</p>
-              <h2 className="section__title" data-split>Shipped screens,<br />not mockups.</h2>
+              <h2 className="section__title" data-split>Projects designed<br />to perform and impress.</h2>
               <p className="section__note" data-reveal>
                 Live interfaces from Roblox experiences — summon banners, inventories,
                 deck builders and loading screens. All designed at 1080p and exported
@@ -173,7 +171,7 @@ export default function Home() {
             <div className="section__head section__head--split" data-stagger="90">
               <div>
                 <p className="eyebrow" data-reveal><em>03</em> Process</p>
-                <h2 className="section__title" data-split>Four steps,<br />no surprises.</h2>
+                <h2 className="section__title" data-split>What to expect.</h2>
               </div>
               <p className="section__note" data-reveal>
                 The same order every time. You always know what&apos;s coming next and what
@@ -231,101 +229,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ============ TOOLKIT ============ */}
-        <section className="toolkit" aria-label="Tools I work in">
-          <div className="shell">
-            <ul className="tools" data-stagger="70">
-
-              <li className="tool" data-reveal>
-                <span className="tool__icon" aria-hidden="true">
-                  {/* Figma — the five stacked shapes */}
-                  <svg viewBox="0 0 24 36" fill="currentColor">
-                    <path d="M6 0h6v6H6a3 3 0 0 1 0-6Z" opacity=".9" />
-                    <path d="M12 0h6a3 3 0 0 1 0 6h-6V0Z" opacity=".55" />
-                    <path d="M6 6h6v6H6a3 3 0 0 1 0-6Z" opacity=".75" />
-                    <path d="M6 12h6v6a3 3 0 1 1-6 0v-6Z" opacity=".9" />
-                    <circle cx="15" cy="9" r="3" opacity=".55" />
-                  </svg>
-                </span>
-                <span className="tool__name">Figma</span>
-                <span className="tool__use">Design &amp; prototyping</span>
-              </li>
-
-              <li className="tool" data-reveal>
-                <span className="tool__icon" aria-hidden="true">
-                  <svg viewBox="0 0 32 32" fill="none">
-                    <rect x="1" y="1" width="30" height="30" rx="7" stroke="currentColor" strokeWidth="1.6" />
-                    <text x="16" y="21.5" textAnchor="middle" fill="currentColor" fontSize="13" fontWeight="600" fontFamily="Geist, sans-serif">Ai</text>
-                  </svg>
-                </span>
-                <span className="tool__name">Illustrator</span>
-                <span className="tool__use">Icons &amp; vector art</span>
-              </li>
-
-              <li className="tool" data-reveal>
-                <span className="tool__icon" aria-hidden="true">
-                  <svg viewBox="0 0 32 32" fill="none">
-                    <rect x="1" y="1" width="30" height="30" rx="7" stroke="currentColor" strokeWidth="1.6" />
-                    <text x="16" y="21.5" textAnchor="middle" fill="currentColor" fontSize="13" fontWeight="600" fontFamily="Geist, sans-serif">Ps</text>
-                  </svg>
-                </span>
-                <span className="tool__name">Photoshop</span>
-                <span className="tool__use">Texture &amp; retouch</span>
-              </li>
-
-              <li className="tool" data-reveal>
-                <span className="tool__icon" aria-hidden="true">
-                  <svg viewBox="0 0 32 32" fill="none">
-                    <rect x="1" y="1" width="30" height="30" rx="7" stroke="currentColor" strokeWidth="1.6" />
-                    <text x="16" y="21.5" textAnchor="middle" fill="currentColor" fontSize="13" fontWeight="600" fontFamily="Geist, sans-serif">Ae</text>
-                  </svg>
-                </span>
-                <span className="tool__name">After Effects</span>
-                <span className="tool__use">UI motion</span>
-              </li>
-
-              <li className="tool" data-reveal>
-                <span className="tool__icon" aria-hidden="true">
-                  {/* Roblox Studio — tilted square inside a square */}
-                  <svg viewBox="0 0 32 32" fill="none">
-                    <rect x="5" y="1.5" width="24" height="24" rx="2" transform="rotate(11 5 1.5)" stroke="currentColor" strokeWidth="1.6" />
-                    <rect x="12.5" y="12" width="8" height="8" rx="1" transform="rotate(11 12.5 12)" fill="currentColor" />
-                  </svg>
-                </span>
-                <span className="tool__name">Roblox Studio</span>
-                <span className="tool__use">In-engine testing</span>
-              </li>
-
-              <li className="tool" data-reveal>
-                <span className="tool__icon" aria-hidden="true">
-                  {/* Blender — the ring and body of the mark, simplified */}
-                  <svg viewBox="0 0 32 32" fill="none">
-                    <circle cx="17" cy="18" r="9" stroke="currentColor" strokeWidth="1.6" />
-                    <circle cx="17" cy="18" r="3.4" fill="currentColor" />
-                    <path d="M4 12.5h10l-4.5 4.2" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </span>
-                <span className="tool__name">Blender</span>
-                <span className="tool__use">3D props &amp; renders</span>
-              </li>
-
-              <li className="tool" data-reveal>
-                <span className="tool__icon" aria-hidden="true">
-                  {/* Rive — the ribboned R */}
-                  <svg viewBox="0 0 32 32" fill="none">
-                    <path d="M8 5h11a7 7 0 0 1 0 14H8V5Z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
-                    <path d="M8 19v8" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-                    <circle cx="17" cy="12" r="2.6" fill="currentColor" />
-                  </svg>
-                </span>
-                <span className="tool__name">Rive</span>
-                <span className="tool__use">Interactive animation</span>
-              </li>
-
-            </ul>
-          </div>
-        </section>
-
         {/* ============ FAQ ============ */}
         <section className="section section--rule" id="faq">
           <div className="shell">
@@ -333,7 +236,7 @@ export default function Home() {
             <div className="section__head section__head--split" data-stagger="90">
               <div>
                 <p className="eyebrow" data-reveal><em>04</em> Questions</p>
-                <h2 className="section__title" data-split>Before you<br />message me.</h2>
+                <h2 className="section__title" data-split>Frequently<br />Asked Questions.</h2>
               </div>
               <p className="section__note" data-reveal>
                 If your question isn&apos;t here, ask it on Discord — I&apos;d rather answer than
@@ -377,12 +280,26 @@ export default function Home() {
 
             <p className="eyebrow" data-reveal><em>05</em> Contact</p>
             <h2 className="contact__title" data-split>
-              Got a game that<br />deserves better UI?
+              Ready to elevate user<br />retention with better UI?
             </h2>
             <p className="contact__sub" data-reveal style={v({ '--d': '120ms' })}>
               Send the game and the screens you need. I&apos;ll tell you honestly whether
               I&apos;m the right fit and what it&apos;ll take.
             </p>
+
+            {/* Deliberately prominent. Clients should meet the terms before
+                they commit, not after something has gone wrong. */}
+            <a
+              href="/terms"
+              className="btn btn--solid btn--lg contact__terms magnetic"
+              data-reveal
+              style={v({ '--d': '200ms' })}
+            >
+              Read the Terms of Service
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4" />
+              </svg>
+            </a>
 
             <div className="links" data-stagger="110">
               <a className="link-row" href="#" data-reveal data-placeholder="discord">

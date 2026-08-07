@@ -23,10 +23,16 @@ export default function SiteNav({ onHome = false }: { onHome?: boolean }) {
             CENG
           </a>
 
+          {/*
+            Pricing is a real page rather than a section, so its link is a
+            plain path. The active-link script only tracks the "#" ones, which
+            is correct — there is no Pricing section on this page to be at.
+          */}
           <nav className="nav__links" aria-label="Main">
             <a href={to('work')}><span>Work</span></a>
             <a href={to('about')}><span>About</span></a>
             <a href={to('process')}><span>Process</span></a>
+            <a href="/pricing"><span>Pricing</span></a>
             <a href={to('faq')}><span>FAQ</span></a>
           </nav>
 
@@ -43,6 +49,11 @@ export default function SiteNav({ onHome = false }: { onHome?: boolean }) {
               </span>
             </button>
 
+            {/* Sits beside the main call to action so the terms are visible
+                from every page, not just from the footer. Ghost rather than
+                solid so "Start a project" stays the primary action. */}
+            <a href="/terms" className="btn btn--ghost btn--sm nav__terms">Terms</a>
+
             <a href={to('contact')} className="btn btn--solid btn--sm nav__cta magnetic">Start a project</a>
 
             <button className="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
@@ -58,8 +69,10 @@ export default function SiteNav({ onHome = false }: { onHome?: boolean }) {
           <a href={to('work')}><em>01</em> Work</a>
           <a href={to('about')}><em>02</em> About</a>
           <a href={to('process')}><em>03</em> Process</a>
-          <a href={to('faq')}><em>04</em> FAQ</a>
-          <a href={to('contact')}><em>05</em> Contact</a>
+          <a href="/pricing"><em>04</em> Pricing</a>
+          <a href={to('faq')}><em>05</em> FAQ</a>
+          <a href="/terms"><em>06</em> Terms</a>
+          <a href={to('contact')}><em>07</em> Contact</a>
         </nav>
       </div>
     </>

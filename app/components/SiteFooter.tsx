@@ -14,7 +14,9 @@ export default function SiteFooter({ onHome = false }: { onHome?: boolean }) {
           <a href={to('work')}>Work</a>
           <a href={to('about')}>About</a>
           <a href={to('process')}>Process</a>
+          <a href="/pricing">Pricing</a>
           <a href={to('faq')}>FAQ</a>
+          <a href="/terms">Terms</a>
           <a href={to('contact')}>Contact</a>
         </nav>
         <p className="footer__note">

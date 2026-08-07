@@ -13,7 +13,8 @@
    10. FAQ accordion
    11. Mobile menu
    12. Loading screen
-   13. Footer year
+   13. Pricing currency switch
+   14. Footer year
    ========================================================================== */
 
 (function () {
@@ -31,7 +32,8 @@
   var MOTION = {
     smoothScroll: true,   // eased page scrolling
     parallax:     true,   // images and headings drift as you scroll
-    magnetic:     true,   // buttons lean toward the cursor
+    magnetic:     false,  // buttons lean toward the cursor (off — the shine
+                          //   sweep in the stylesheet does the work instead)
     scrollEase:   0.22,   // higher = snappier scrolling, lower = floatier
     staggerStep:  85,     // milliseconds between items in a group
     wordStep:     55,     // milliseconds between words in a heading
@@ -820,7 +822,63 @@
 
 
   /* ======================================================================
-     13. FOOTER YEAR
+     13. PRICING — CURRENCY SWITCH
+     ----------------------------------------------------------------------
+     Swaps every price between its USD and Robux figure. Both numbers are
+     already in the markup as data attributes, so nothing is calculated here
+     and nothing is fetched — the switch is only choosing which of the two
+     to show.
+
+     Only present on the pricing page; everywhere else this does nothing.
+     ====================================================================== */
+
+  var currencySwitch = document.getElementById('currencySwitch');
+
+  if (currencySwitch) {
+    var switchBtns = Array.prototype.slice.call(
+      currencySwitch.querySelectorAll('.switch__btn')
+    );
+    var amounts = Array.prototype.slice.call(document.querySelectorAll('.tier__amount'));
+
+    function setCurrency(currency) {
+      switchBtns.forEach(function (b) {
+        var on = b.getAttribute('data-currency') === currency;
+        b.classList.toggle('is-active', on);
+        b.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+
+      // Moves the sliding pill behind the active option
+      currencySwitch.setAttribute('data-active', currency);
+
+      amounts.forEach(function (el) {
+        var next = el.getAttribute('data-' + currency);
+        if (!next || next === el.textContent) return;
+
+        if (!animate) { el.textContent = next; return; }
+
+        // Lift the old figure out, swap it while nothing is visible, drop the
+        // new one back in. Swapping mid-fade is what stops the two numbers
+        // ever being seen crossing over each other.
+        el.classList.add('is-swapping');
+        setTimeout(function () {
+          el.textContent = next;
+          el.classList.remove('is-swapping');
+        }, 180);
+      });
+    }
+
+    switchBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        setCurrency(btn.getAttribute('data-currency'));
+      });
+    });
+
+    currencySwitch.setAttribute('data-active', 'usd');
+  }
+
+
+  /* ======================================================================
+     14. FOOTER YEAR
      ====================================================================== */
 
   var year = document.getElementById('year');
